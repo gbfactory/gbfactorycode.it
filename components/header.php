@@ -62,7 +62,7 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
 								if ($result->num_rows > 0) {
 									// output data of each row
 									while ($row = $result->fetch_assoc()) {
-										echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/download/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
+										echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
 									}
 								}
 								?>

@@ -34,7 +34,7 @@
 						if ($result->num_rows > 0) {
 							// output data of each row
 							while ($row = $result->fetch_assoc()) {
-                                echo '<li><a class="mb-2" href="https://' . $_SERVER['HTTP_HOST']  . '/download/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
+                                echo '<li><a class="mb-2" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
 							}
 						}
 						?>

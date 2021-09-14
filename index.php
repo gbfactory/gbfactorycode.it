@@ -10,12 +10,12 @@ switch (explode('/', $request)[1]) {
         require './home.php';
         break;
 
-    case 'download':
-        require './download.php';
+    case 'playlist':
+        require './playlist.php';
         break;
 
-    case 'get':
-        require './get.php';
+    case 'download':
+        require './download.php';
         break;
 
     // Admin panel
