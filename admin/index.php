@@ -19,6 +19,8 @@ if (!isset($_SESSION['login'])) {
 </style>
 
 <div class="container px-4 py-5">
+    <a href="/logout">Esci</a>
+    <hr>
     <h2>Gestione Video</h2>
     <hr>
 

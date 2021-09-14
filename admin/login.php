@@ -9,6 +9,7 @@ if (isset($_SESSION['login'])) {
 
 <?php $pagina = 'Login' ?>
 <?php include('./components/database.php'); ?>
+<?php include('./components/credenziali.php'); ?>
 <?php include('./components/header.php'); ?>
 <?php include('./components/pageheader.php'); ?>
 
@@ -16,7 +17,7 @@ if (isset($_SESSION['login'])) {
 if (isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username === 'admin' && $password === 'password') {
+    if ($username === $credenziali_nome_utente && $password === $credenziali_password) {
         $_SESSION['login'] = true;
         header('Location: /admin');
         die();
