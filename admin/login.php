@@ -8,6 +8,7 @@ if (isset($_SESSION['login'])) {
 ?>
 
 <?php $pagina = 'Login' ?>
+<?php include('./components/database.php'); ?>
 <?php include('./components/header.php'); ?>
 <?php include('./components/pageheader.php'); ?>
 
