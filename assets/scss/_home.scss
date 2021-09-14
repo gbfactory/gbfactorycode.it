@@ -1,0 +1,23 @@
+// Videos
+#videos h2 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 600;
+}
+
+#videos .card img {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+// Stats
+#statistics .title {
+    font-family: "Oswald", sans-serif;
+    font-size: 30px
+}
+
+#statistics .number {
+    font-family: "Oswald", sans-serif;
+    font-size: 45px;
+    color: $yellow;
+    display: block
+}

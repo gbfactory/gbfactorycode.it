@@ -1,0 +1,16 @@
+.footer-dark {
+    background-color: $dark-background;
+
+    h5 {
+        font-family: "Oswald", sans-serif;
+    }
+
+    .list-unstyled a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover, &:focus {
+            color: $yellow;
+        }
+    }
+}

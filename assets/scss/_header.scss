@@ -1,0 +1,26 @@
+#header {
+    @include gradient-background;
+}
+
+#header h1 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+#sub-header {
+    @include gradient-background;
+}
+
+#sub-header h1 {
+    font-family: "Oswald", sans-serif;
+    text-transform: uppercase;
+}
+
+#sub-header h2 {
+    margin: 0;
+}
+
+#wave svg {
+    position: absolute;
+    z-index: -10;
+}

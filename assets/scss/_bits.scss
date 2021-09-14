@@ -1,0 +1,19 @@
+$dark-background: #141414;
+$dark-border: #040404;
+$yellow: #ffbe0b;
+$orange: #ff6600;
+$pink: #ff0096;
+
+@mixin font-header {
+    font-family: "Oswald", sans-serif;
+}
+
+@mixin font-body {
+    font-family: 'IBM Plex Sans', sans-serif;
+}
+
+@mixin gradient-background {
+    background: $yellow; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, $yellow, $orange, $pink); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, $yellow, $orange, $pink); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

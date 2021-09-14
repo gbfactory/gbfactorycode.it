@@ -1,0 +1,81 @@
+.btn-primary {
+	background-color: $yellow;
+	border: $yellow solid 2px;
+
+	&:hover, &:focus {
+		color: #222;
+		background-color: #fff;
+		border: #fed000 solid 2px;
+	}
+}
+
+.btn-download {
+	color: #fff !important;
+	background: $yellow;
+	border: 1px solid $yellow;
+
+	&:hover, &:focus {
+		color: $yellow !important;
+		background: #fff;
+		border: 1px solid $yellow;
+	}
+}
+
+.btn-create {
+	color: $yellow !important;
+	background: #fff;
+	border: 1px solid $yellow;
+
+	&:hover, &:focus {
+		color: #fff !important;
+		background: $yellow;
+		border: 1px solid $yellow;
+	}
+}
+
+.btn-discord {
+	color: #fff;
+	background: #5865f2;
+	border: 1px solid #5865f2;
+
+	&:hover, &:focus {
+		color: #fff;
+		background: hsl(235,86.1%,71.8%);
+		border: 1px solid hsl(235,86.1%,71.8%);
+	}
+}
+
+.btn-dll {
+	color: #424242;
+	background: #fff;
+	width: 225px;
+	transition: all .2s ease-out;
+
+	&:hover {
+		color: #1b1b1b;
+		box-shadow: rgba(0,0,0,0.3) 0px 2px 12px;
+		transform: translateY(-5px);
+	}
+
+	.text {
+		small {
+			font-size: 13px;
+			text-transform: uppercase;
+			opacity: 0.8;
+			font-weight: bold;
+		}
+		
+		b {
+			font-family: "Oswald", sans-serif;
+			line-height: normal;
+			margin-top: -9px;
+			display: block;
+			font-weight: 500;
+			font-size: 24px;
+		}
+	}
+
+	.fab {
+		font-size: 40px;
+	}
+}

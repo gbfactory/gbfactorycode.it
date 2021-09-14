@@ -1,0 +1,55 @@
+#legal {
+    padding: 25px;
+    font-family: "Roboto",sans-serif
+}
+
+#legal .page-title {
+    font-size: 38px;
+    color: #D31F2B;
+    text-align: center
+}
+
+#legal h1 {
+    font-size: 36px;
+    color: #333;
+    // font-family: "Montserrat",sans-serif
+}
+
+#legal h2 {
+    font-size: 24px;
+    color: #fcba0c;
+    font-weight: 500;
+    // font-family: "Montserrat",sans-serif
+}
+
+#legal p {
+    margin: 10px 35px 10px;
+    font-size: 16px;
+    font-weight: 300
+}
+
+#legal b {
+    font-size: 18px;
+    color: #000000;
+    font-weight: 900
+}
+
+#legal .section {
+    padding: 5px
+}
+
+#legal .sub-section {
+    margin-bottom: 15px
+}
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 426px) {
+    #legal p,#legal b {
+        text-align:center
+    }
+}
+
+@media only screen and (min-device-width: 680px) and (max-device-width: 768px) {
+    #legal p,#legal b {
+        text-align:left
+    }
+}
