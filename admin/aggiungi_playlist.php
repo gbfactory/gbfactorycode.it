@@ -6,8 +6,10 @@ if (!isset($_SESSION['login'])) {
 }
 ?>
 <?php $pagina = 'Aggiungi una Serie' ?>
-<?php include('header.php'); ?>
-<?php include('pageheader.php'); ?>
+<?php include('../components/database.php'); ?>
+<?php include('../components/header.php'); ?>
+<?php include('../components/pageheader.php'); ?>
+
 
 <div id="aggiungi-tutorial">
   <div class="container py-5">
@@ -34,7 +36,7 @@ if (!isset($_SESSION['login'])) {
   </div>
 </div>
 
-<?php include('footer.php'); ?>
+<?php include('../components/footer.php'); ?>
 
 <?php
 $titolo = $slug = $link = "";
