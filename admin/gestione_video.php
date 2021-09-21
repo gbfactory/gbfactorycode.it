@@ -5,9 +5,11 @@ if (!isset($_SESSION['login'])) {
     die();
 }
 ?>
-<?php $pagina = 'Elenco Tutorial' ?>
-<?php include('header.php'); ?>
-<?php include('pageheader.php'); ?>
+
+<?php $pagina = 'Gestione Video' ?>
+<?php include('../components/database.php'); ?>
+<?php include('../components/header.php'); ?>
+<?php include('../components/pageheader.php'); ?>
 
 <div id="lista-tutorial">
     <div class="container py-5">

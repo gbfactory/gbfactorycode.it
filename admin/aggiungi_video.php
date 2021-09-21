@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // testo
     $titolo = test_input($_POST["titolo"]);
     $video = substr(test_input($_POST["link"]), -11);
-    $file = test_input($_POST["file"]);
+    // $file = test_input($_POST["file"]);
     $data_split = explode('/', test_input($_POST["date"]));
     $data = $data_split[2] . '-' . $data_split[1] . '-' . $data_split[0];
     $serie = test_input($_POST["serie"]);

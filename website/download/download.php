@@ -33,7 +33,7 @@ include('./components/pageheader.php');
                 <h5 class="card-title mb-4">
                     <i class="fas fa-download"></i> Stai scaricando <?= $nome_file ?>
                 </h5>
-                <a href="https://<?= $_SERVER['HTTP_HOST'] ?>/get_file.php?nomeFile=<?= $nome_file ?>&codiceFile=<?= $codice_file ?>" class="btn btn-download" id="downloadr"><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download</a>
+                <a href="https://<?= $_SERVER['HTTP_HOST'] ?>/website/download/get_file.php?nomeFile=<?= $nome_file ?>&codiceFile=<?= $codice_file ?>" class="btn btn-download" id="downloadr"><i class="fa fa-download fa-fw" aria-hidden="true"></i> Download</a>
             </div>
         </div>
     </div>

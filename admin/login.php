@@ -10,8 +10,6 @@ if (isset($_SESSION['login'])) {
 <?php $pagina = 'Login' ?>
 <?php include('./components/database.php'); ?>
 <?php include('./components/credenziali.php'); ?>
-<?php include('./components/header.php'); ?>
-<?php include('./components/pageheader.php'); ?>
 
 <?php
 if (isset($_POST['submit'])) {
@@ -26,6 +24,9 @@ if (isset($_POST['submit'])) {
     }
 }
 ?>
+
+<?php include('./components/header.php'); ?>
+<?php include('./components/pageheader.php'); ?>
 
 <div id="login">
     <div class="container">

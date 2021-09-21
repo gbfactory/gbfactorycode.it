@@ -2,24 +2,32 @@
 $request = $_SERVER['REQUEST_URI'];
 
 switch (explode('/', $request)[1]) {
+    // Index
     case '/':
-        require './home.php';
+        require './website/pagine/home.php';
         break;
 
     case '':
-        require './home.php';
+        require './website/pagine/home.php';
         break;
 
+    // Sezione download
     case 'playlist':
-        require './playlist.php';
+        require './website/download/playlist.php';
         break;
 
     case 'download':
-        require './download.php';
+        require './website/download/download.php';
         break;
 
-    // Admin panel
+    // Sezione tutorial
 
+    // Sezione pagine
+    case 'contatti':
+        require './website/pagine/contatti.php';
+        break;
+
+    // Sezione admin
     case 'login':
         require './admin/login.php';
         break;
@@ -32,11 +40,7 @@ switch (explode('/', $request)[1]) {
         require './admin/admin.php';
         break;
 
-
-
-
-
-
+    // Errore
     default:
         require './errore.php';
         break;

@@ -34,7 +34,7 @@
 						if ($result->num_rows > 0) {
 							// output data of each row
 							while ($row = $result->fetch_assoc()) {
-                                echo '<li><a class="mb-2" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
+								echo '<li class="mb-2"><a href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
 							}
 						}
 						?>
@@ -89,21 +89,36 @@
 
 <script>
 	$(".js-modal-btn").modalVideo();
+
+	// $(window).scroll(function() {
+	// 	if ($(window).scrollTop() >= 150) {
+	// 		$('.navbar').removeClass('py-4');
+	// 	} else {
+	// 		$('.navbar').addClass('py-4');
+	// 	}
+	// });
 </script>
 
 <!-- Yandex.Metrika counter -->
-<script type="text/javascript" >
-   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+<script type="text/javascript">
+	(function(m, e, t, r, i, k, a) {
+		m[i] = m[i] || function() {
+			(m[i].a = m[i].a || []).push(arguments)
+		};
+		m[i].l = 1 * new Date();
+		k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+	})
+	(window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-   ym(83195719, "init", {
-        clickmap:true,
-        trackLinks:true,
-        accurateTrackBounce:true
-   });
+	ym(83195719, "init", {
+		clickmap: true,
+		trackLinks: true,
+		accurateTrackBounce: true
+	});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/83195719" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<noscript>
+	<div><img src="https://mc.yandex.ru/watch/83195719" style="position:absolute; left:-9999px;" alt="" /></div>
+</noscript>
 <!-- /Yandex.Metrika counter -->
 
 </body>
