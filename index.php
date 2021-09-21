@@ -21,6 +21,9 @@ switch (explode('/', $request)[1]) {
         break;
 
     // Sezione tutorial
+    case 'tutorial':
+        require './website/tutorial/tutorial.php';
+        break;
 
     // Sezione pagine
     case 'contatti':

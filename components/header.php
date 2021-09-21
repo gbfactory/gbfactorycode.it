@@ -15,7 +15,7 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
     <meta name="keywords" content="gb factory, gb factory code, tutorial, programmazione, discord.js, bot discord, java swing, plugin minecraft, corsi programmazione, tutorial programmazione">
     <meta name="author" content="GB Factory">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <meta property="og:site_name" content="GB Factory Code">
     <meta property="og:title" content="<?= $pagina ?>">
     <meta property="og:type" content="website">
@@ -81,7 +81,17 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
                                 Tutorial
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>Coming soon...</li>
+                                <?php
+                                $sql = "SELECT title, slug FROM guide";
+                                $result = $conn->query($sql);
+
+                                if ($result->num_rows > 0) {
+                                    // output data of each row
+                                    while ($row = $result->fetch_assoc()) {
+                                        echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["title"] . '</a></li>';
+                                    }
+                                }
+                                ?>
                             </ul>
                         </li>
 
