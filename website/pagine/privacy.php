@@ -1,6 +1,16 @@
-<?php $pagina = 'Privacy Policy' ?>
-<?php include('header.php'); ?>
-<?php include('pageheader.php'); ?>
+<?php
+// Database
+include('./components/database.php');
+
+// Titolo pagina
+$pagina = 'Privacy Policy';
+
+// Header
+include('./components/header.php');
+
+// Testata
+include('./components/pageheader.php');
+?>
 
 <div id="legal">
     <div class="container">
@@ -28,4 +38,4 @@
     </div>
 </div>
 
-<?php include('footer.php'); ?>
+<?php include('./components/footer.php'); ?>
