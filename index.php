@@ -10,6 +10,18 @@ switch (explode('/', $request)[1]) {
     case '':
         require './website/pagine/home.php';
         break;
+    
+    case 'errore':
+        require './website/pagine/error.php';
+        break;
+            
+    case 'privacy':
+        require './website/pagine/privacy.php';
+        break;
+            
+    case 'cookie':
+        require './website/pagine/cookie.php';
+        break;
 
     // Sezione download
     case 'playlist':
@@ -45,6 +57,6 @@ switch (explode('/', $request)[1]) {
 
     // Errore
     default:
-        require './errore.php';
+        require './website/pagine/error.php';
         break;
 }

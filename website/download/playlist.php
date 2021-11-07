@@ -5,16 +5,21 @@ include('./components/database.php');
 // Parametri url
 $tutorial = explode('/', $request)[2];
 
-// Richiesta sql
-$sql = "SELECT nome FROM serie WHERE slug = '" . $tutorial . "'";
-$result = $conn->query($sql);
+// Richiesta sql per controllare se la playlist esiste
+$stmt = $conn->prepare("SELECT nome FROM serie WHERE slug = ?");
+$stmt->bind_param("s", $tutorial);
+$stmt->execute();
 
-if ($result->num_rows > 0) {
-    $nomeTutorial = $row = $result->fetch_assoc()["nome"];
-} else {
-    header("Location: /");
+$result = $stmt->get_result();
+
+// Controlla se esiste la playlist
+if ($result->num_rows === 0) {
+    header("Location: /errore");
     die();
 }
+
+// Nome della playlist
+$nomeTutorial = $result->fetch_assoc()["nome"];
 
 // Titolo pagina
 $pagina = $nomeTutorial;
@@ -24,6 +29,9 @@ include('./components/header.php');
 
 // Testata
 include('./components/pageheader.php');
+
+// Chiusura connessione
+$stmt->close();
 ?>
 
 <div id="download">
@@ -32,12 +40,21 @@ include('./components/pageheader.php');
             <div class="col-md-12 py-5">
 
                 <?php
-                $sql = "SELECT titolo, video, file, data FROM tutorial WHERE serie = '" . $tutorial . "'";
-                $result = $conn->query($sql);
+                // Ottieni tutti i video con playlist attuale
+                $stmt = $conn->prepare("SELECT titolo, video, file, data FROM tutorial WHERE serie = ?");
+                $stmt->bind_param("s", $tutorial);
+                $stmt->execute();
+
+                $result = $stmt->get_result();
+
+                // Contatore episodi
                 $i = 1;
 
+                // Controlla se ci sono episodi
                 if ($result->num_rows > 0) {
+                    // Ciclo di visualizzazione episodi
                     while ($row = $result->fetch_assoc()) {
+                        // Formattazione data
                         $ds = explode('-', $row["data"]);
                 ?>
                         <div class="card shadow-sm mb-4 p-4 download">
@@ -62,7 +79,19 @@ include('./components/pageheader.php');
                                 </div>
                             </div>
                         </div>
+                        <?php
+                        if ($i % 5 == 0) { ?>
+                            <div class="card shadow-sm mb-4 p-4 download">
+                                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9049796387311792" crossorigin="anonymous"></script>
+                                <!-- Download Lista -->
+                                <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9049796387311792" data-ad-slot="4473751491" data-ad-format="auto" data-full-width-responsive="true"></ins>
+                                <script>
+                                    (adsbygoogle = window.adsbygoogle || []).push({});
+                                </script>
+                            </div>
                     <?php
+                        }
+
                         $i++;
                     }
                 } else {
@@ -70,6 +99,9 @@ include('./components/pageheader.php');
                     <h1 class="text-center">Nessun tutorial trovato</h1>
                 <?php
                 }
+
+                // Chiude connessione
+                $stmt->close()
                 ?>
 
             </div>

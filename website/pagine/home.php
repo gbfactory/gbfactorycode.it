@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Database
 include('./components/database.php');
 
@@ -59,24 +59,27 @@ include('./components/header.php');
 
             <div class="row row-cols-1 row-cols-md-3">
                 <?php
-                $content = file_get_contents('https://www.googleapis.com/youtube/v3/search?key=AIzaSyDCM9aDKmUosw6KPVnj8av4S9AWtDCqQ6g&channelId=UCO8qGdzY_vZuBzri8bC7dOQ&part=snippet,id&order=date&maxResults=3');
-                $json = json_decode($content);
-                $lista_video = $json->items;
+                $content = @file_get_contents('https://www.googleapis.com/youtube/v3/search?key=AIzaSyDCM9aDKmUosw6KPVnj8av4S9AWtDCqQ6g&channelId=UCO8qGdzY_vZuBzri8bC7dOQ&part=snippet,id&order=date&maxResults=3');
 
-                for ($i = 0; $i < count($lista_video); $i++) {
-                    $video = $lista_video[$i];
+                if ($content) {
+                    $json = json_decode($content);
+                    $lista_video = $json->items;
+
+                    for ($i = 0; $i < count($lista_video); $i++) {
+                        $video = $lista_video[$i];
                 ?>
-                    <div class="col">
-                        <div class="card shadow-sm mb-3" style="border: 0;">
-                            <img src="<?= $video->snippet->thumbnails->medium->url ?>" alt="">
-                            <div class="card-body text-center">
-                                <h5 class="card-title mb-3"><?= $video->snippet->title ?></h5>
-                                <button type="button" class="js-modal-btn btn btn-primary video-btn px-4" data-video-id="<?= $video->id->videoId ?>">Guarda Video</button>
+                        <div class="col">
+                            <div class="card shadow-sm mb-3" style="border: 0;">
+                                <img src="<?= $video->snippet->thumbnails->medium->url ?>" alt="">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-3"><?= $video->snippet->title ?></h5>
+                                    <button type="button" class="js-modal-btn btn btn-primary video-btn px-4" data-video-id="<?= $video->id->videoId ?>">Guarda Video</button>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
                 <?php
+                    }
                 }
                 ?>
             </div>
@@ -98,27 +101,41 @@ include('./components/header.php');
     </div>
 </section>
 
+<section id="ad">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9049796387311792" crossorigin="anonymous"></script>
+    <!-- Home Fondo -->
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9049796387311792" data-ad-slot="9419984087" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</section>
+
 <section id="statistics" class="bg-light py-5">
     <?php
-    $content = file_get_contents('https://www.googleapis.com/youtube/v3/channels?id=UCO8qGdzY_vZuBzri8bC7dOQ&key=AIzaSyDCM9aDKmUosw6KPVnj8av4S9AWtDCqQ6g&part=statistics');
-    $json = json_decode($content);
+    $content = @file_get_contents('https://www.googleapis.com/youtube/v3/channels?id=UCO8qGdzY_vZuBzri8bC7dOQ&key=AIzaSyDCM9aDKmUosw6KPVnj8av4S9AWtDCqQ6g&part=statistics');
+
+    if ($content) {
+        $json = json_decode($content);
     ?>
-    <div class="container text-center">
-        <div class="row row-cols-1 row-cols-md-3">
-            <div class="col">
-                <span class="number"><?= $json->items[0]->statistics->videoCount ?></span>
-                <span class="title">TUTORIAL</span>
-            </div>
-            <div class="col">
-                <span class="number"><?= $json->items[0]->statistics->subscriberCount ?></span>
-                <span class="title">ISCRITTI</span>
-            </div>
-            <div class="col">
-                <span class="number"><?= $json->items[0]->statistics->viewCount ?></span>
-                <span class="title">VISUALIZZAZIONI</span>
+        <div class="container text-center">
+            <div class="row row-cols-1 row-cols-md-3">
+                <div class="col">
+                    <span class="number"><?= $json->items[0]->statistics->videoCount ?></span>
+                    <span class="title">TUTORIAL</span>
+                </div>
+                <div class="col">
+                    <span class="number"><?= $json->items[0]->statistics->subscriberCount ?></span>
+                    <span class="title">ISCRITTI</span>
+                </div>
+                <div class="col">
+                    <span class="number"><?= $json->items[0]->statistics->viewCount ?></span>
+                    <span class="title">VISUALIZZAZIONI</span>
+                </div>
             </div>
         </div>
-    </div>
+    <?php
+    }
+    ?>
 </section>
 
 <?php include('./components/footer.php'); ?>

@@ -10,7 +10,7 @@ if (!isset($_SESSION['login'])) {
 <?php $pagina = 'Admin' ?>
 <?php include('../components/database.php'); ?>
 <?php include('../components/header.php'); ?>
-<?php include('../components/pageheader.php'); ?>
+<?php include('../admin/admin_header.php'); ?>
 
 <style>
     .icon-square {
@@ -19,8 +19,6 @@ if (!isset($_SESSION['login'])) {
 </style>
 
 <div class="container px-4 py-5">
-    <a href="/logout">Esci</a>
-    <hr>
     <h2>Gestione Video</h2>
     <hr>
 

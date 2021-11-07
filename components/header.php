@@ -1,4 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 // Config
 $link_youtube = 'https://www.youtube.com/channel/UCO8qGdzY_vZuBzri8bC7dOQ';
 $link_discord = 'https://discord.gg/rHk3hgqU5t';
@@ -29,7 +33,7 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
     <link rel="icon" href="https://<?= $_SERVER['HTTP_HOST'] ?>/favicon.ico">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css" integrity="sha512-usVBAd66/NpVNfBge19gws2j6JZinnca12rAe2l+d+QkLU9fiG02O1X8Q6hepIpr/EYKZvKx/I9WsnujJuOmBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" integrity="sha512-6S2HWzVFxruDlZxI3sXOZZ4/eJ8AcxkQH1+JjSe/ONCEqR9L4Ysq5JdT5ipqtzU7WHalNwzwBv+iE51gNHJNqQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://<?= $_SERVER['HTTP_HOST'] ?>/assets/css/modal-video.min.css" rel="stylesheet">
     <link href="https://<?= $_SERVER['HTTP_HOST'] ?>/assets/css/style.css" rel="stylesheet">
@@ -39,6 +43,8 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
     <?php } ?>
 
     <meta name="theme-color" content="#ffca26" />
+
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="56f0b80e-3ed0-4b73-bbf5-8a52b3a1d771" data-blockingmode="auto" type="text/javascript"></script>
 </head>
 
 <body>
@@ -67,7 +73,6 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
-                                    // output data of each row
                                     while ($row = $result->fetch_assoc()) {
                                         echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["nome"] . '</a></li>';
                                     }
@@ -86,9 +91,8 @@ $link_discord = 'https://discord.gg/rHk3hgqU5t';
                                 $result = $conn->query($sql);
 
                                 if ($result->num_rows > 0) {
-                                    // output data of each row
                                     while ($row = $result->fetch_assoc()) {
-                                        echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/playlist/' . $row["slug"] . '">' . $row["title"] . '</a></li>';
+                                        echo '<li><a class="dropdown-item" href="https://' . $_SERVER['HTTP_HOST']  . '/tutorial/' . $row["slug"] . '">' . $row["title"] . '</a></li>';
                                     }
                                 }
                                 ?>
